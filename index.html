@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Your Result</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+ 
+</head>
+
+<body>
+    <h1>Check Your Result</h1>
+    <div class="sec1">
+  
+        <form>
+           
+            <div class="div">
+                <label>English Marks:</label>
+                <input type="text" placeholder="English Marks" id="eng">
+            </div>
+<br>
+
+            <div class="div">
+                <label>Physics Marks:</label>
+                <input type="text" placeholder="Physics Marks" id="physics">
+            </div>
+            <br>
+            <div class="div">
+                <label>Chemistry Marks:</label>
+                <input type="text" placeholder="Chemistry Marks" id="chemistry">
+            </div>
+            <br>
+            <div class="div">
+                <label>Mathematics Marks:</label>
+                <input type="text" placeholder="Maths Marks" id="maths">
+            </div>
+            <br>
+            <div class="div">
+                <label>Computer Marks:</label>
+                <input type="text" placeholder="Computer Marks" id="comp">
+            </div>
+            <br>
+            <div class="div">
+                <label>Total:</label>
+                <input type="text" placeholder="Total" readonly id="total">
+            </div>
+            <br>
+
+            <div class="div">
+                <label>Percentage</label>
+                <input type="text" placeholder="Percentage" readonly id="avg">
+            </div>
+            <br>
+
+            <div class="div">
+                <label>Result</label>
+                <input type="text" placeholder="Result" readonly id="result">
+            </div>
+            <br>
+            <div class="div">
+                <!-- <input type="button" value="Get Your Division" onclick="cal()"> -->
+               
+                <button type="button" value="Get Your Division" onclick="cal()">
+                  <span class="transition"></span>
+                  <span class="gradient"></span>
+                  <span class="label">Calculate</span>
+                </button>
+                
+            </div>
+
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+    <script>
+    let maths = document.getElementById('maths');
+    let physics = document.getElementById('physics');
+    let chemistry = document.getElementById('chemistry');
+    let total = document.getElementById('total');
+    let result = document.getElementById('result');
+    let avg = document.getElementById('avg');
+    let comp = document.getElementById('comp');
+    let eng = document.getElementById('eng');
+    
+
+    function cal() {
+        let a = parseFloat(maths.value);
+        let b = parseFloat(physics.value)
+        let c = parseFloat(chemistry.value);
+        let d = parseFloat(eng.value);
+        let e = parseFloat(comp.value);
+
+        let totalMarks = a + b + c+d+e;
+        total.value = totalMarks;
+
+        let avgValue = (totalMarks / 5).toFixed(2); // Format to 2 decimal places
+        avg.value = avgValue; // Correctly assign the calculated average to the input
+       
+        console.log(avg);
+        
+
+        if (totalMarks >= 500) {
+            result.value = "First Division ";
+        } 
+        else if (totalMarks >= 400) 
+        {
+            result.value = "Second Division ";
+        }
+         else if (totalMarks >= 300) 
+         {
+            result.value = "Third Division ";
+        } 
+        else if (totalMarks >= 200) {
+            result.value = "Fourth Division ";
+        }
+
+        else {
+            result.value = "Fail";
+        }
+    }
+    </script>
+</body>
+
+</html>
